@@ -186,23 +186,68 @@
         }
         .footer-links a:hover { color: var(--sage-muted); }
 
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 6px;
+        }
+
+        .mobile-toggle span {
+            width: 22px;
+            height: 2px;
+            background: var(--espresso);
+            border-radius: 1px;
+            transition: all 0.3s;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .services-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
+            
+            .nav-links { 
+                position: fixed;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: var(--cream);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1.5rem;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                border-bottom: 1px solid var(--border-light);
+            }
+            
+            .nav-links.show {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .mobile-toggle { display: flex; }
+            
+            .hero-content { text-align: center; }
+            .hero-buttons { justify-content: center; }
         }
     </style>
 </head>
 <body>
     <nav id="navbar">
         <a href="index.html" class="nav-logo">Make My Day<span>.</span></a>
-        <ul class="nav-links">
+        <ul class="nav-links" id="nav-links">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="services.html">Services</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="contact.html" class="nav-cta">Book an Event</a></li>
         </ul>
+        <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
 
     <section class="hero">
@@ -265,6 +310,18 @@
     <script>
         window.addEventListener('scroll', () => {
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('show');
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-links').classList.remove('show');
+            });
         });
     </script>
 </body>
