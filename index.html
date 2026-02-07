@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Make My Day Café — We Come to You</title>
+    <meta name="description" content="Make My Day Café brings barista-quality mobile coffee catering to your corporate events, private parties, and celebrations in the San Francisco Bay Area.">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -40,114 +41,40 @@
 
         /* Navigation */
         nav {
-            position: fixed; 
-            top: 0; 
-            left: 0;
-            width: 100%; 
-            z-index: 1000;
-            padding: 0 clamp(1.5rem, 4vw, 4rem); 
-            height: 72px;
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between;
-            background: rgba(250, 246, 241, 0.96); 
-            backdrop-filter: blur(12px);
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 0 clamp(1.5rem, 4vw, 4rem); height: 72px;
+            display: flex; align-items: center; justify-content: space-between;
+            background: rgba(250, 246, 241, 0.92); backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border-light);
-            transition: all 0.3s ease;
-            box-sizing: border-box;
-            margin: 0;
-            border: none;
-            outline: none;
-        }
-
-        nav.scrolled { 
-            box-shadow: 0 4px 20px rgba(62, 39, 35, 0.12); 
-        }
-
-        /* Ensure no nav pseudo-elements */
-        nav::before,
-        nav::after {
-            display: none !important;
         }
 
         .nav-logo {
-            font-family: 'Playfair Display', serif; 
-            font-size: 1.4rem;
-            font-weight: 700; 
-            color: var(--espresso); 
-            text-decoration: none;
-            display: block;
-            line-height: 1.2;
-            position: relative;
-            z-index: 2;
+            font-family: 'Playfair Display', serif; font-size: 1.35rem;
+            font-weight: 700; color: var(--espresso); text-decoration: none;
+            line-height: 1;
         }
+        .nav-logo span { color: var(--sage); }
 
-        .nav-logo span { 
-            color: var(--sage); 
-        }
-
-        .nav-links { 
-            display: flex; 
-            gap: 2.5rem; 
-            list-style: none; 
-            align-items: center; 
-        }
-
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
         .nav-links a {
-            text-decoration: none; 
-            color: var(--espresso-light); 
-            font-size: 0.9rem;
-            font-weight: 500; 
-            letter-spacing: 0.02em; 
-            text-transform: uppercase;
-            transition: color 0.3s; 
-            position: relative;
+            text-decoration: none; color: var(--espresso-light); font-size: 0.88rem;
+            font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+            transition: color 0.3s; position: relative;
         }
-
         .nav-links a::after {
-            content: ''; 
-            position: absolute; 
-            bottom: -4px; 
-            left: 0; 
-            width: 0;
-            height: 2px; 
-            background: var(--sage); 
-            transition: width 0.3s ease;
+            content: ''; position: absolute; bottom: -4px; left: 0; width: 0;
+            height: 1.5px; background: var(--sage); transition: width 0.3s ease;
         }
-
-        .nav-links a:hover { 
-            color: var(--espresso); 
-        }
-
-        .nav-links a:hover::after { 
-            width: 100%; 
-        }
-
-        .nav-links a.active { 
-            color: var(--espresso); 
-        }
-
-        .nav-links a.active::after { 
-            width: 100%; 
-        }
+        .nav-links a:hover { color: var(--espresso); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a.active { color: var(--espresso); }
+        .nav-links a.active::after { width: 100%; }
 
         .nav-cta {
-            background: var(--sage) !important; 
-            color: white !important; 
-            padding: 10px 20px !important; 
-            border-radius: 6px; 
-            font-size: 0.85rem !important;
-            font-weight: 600 !important;
+            background: var(--espresso) !important; color: var(--cream) !important;
+            padding: 0.6rem 1.4rem !important; border-radius: 4px;
         }
-
-        .nav-cta:hover { 
-            background: var(--sage-light) !important; 
-            transform: translateY(-1px);
-        }
-
-        .nav-cta::after { 
-            display: none !important; 
-        }
+        .nav-cta::after { display: none !important; }
 
         .mobile-toggle {
             display: none;
@@ -156,48 +83,32 @@
             cursor: pointer;
             background: none;
             border: none;
-            padding: 8px;
-            position: relative;
-            z-index: 2;
+            padding: 6px;
+            z-index: 1001;
         }
 
         .mobile-toggle span {
-            width: 24px;
+            width: 22px;
             height: 2px;
             background: var(--espresso);
-            border-radius: 2px;
-            transition: all 0.3s ease;
+            border-radius: 1px;
+            transition: all 0.3s;
         }
 
         /* Hero Section */
         .hero {
-            min-height: 100vh; 
+            min-height: calc(100vh - 72px);
             display: flex; 
             align-items: center; 
             justify-content: center;
             padding: clamp(2rem, 8vw, 6rem); 
             background: linear-gradient(135deg, var(--warm-white) 0%, var(--cream) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 20%;
-            right: 10%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(199, 169, 110, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: 1;
+            margin-top: 72px;
         }
 
         .hero-content { 
-            text-align: left; 
+            text-align: center; 
             max-width: 600px; 
-            z-index: 2;
-            position: relative;
         }
 
         .hero-badge {
@@ -232,12 +143,16 @@
             color: var(--muted-text);
             margin-bottom: 2rem; 
             max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .hero-buttons { 
             display: flex; 
             gap: 1rem; 
             align-items: center; 
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .btn-primary {
@@ -445,186 +360,81 @@
 
         /* Footer */
         footer {
-            background: var(--charcoal); 
-            color: rgba(250,246,241,0.8); 
-            text-align: center;
-            padding: clamp(3rem, 6vw, 4rem) clamp(1.5rem, 4vw, 4rem) 2rem;
+            background: var(--espresso-dark); color: rgba(250,246,241,0.5);
+            padding: 3rem clamp(1.5rem, 5vw, 6rem);
+        }
+
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 1rem;
         }
 
         .footer-logo {
-            font-family: 'Playfair Display', serif; 
-            font-size: 1.6rem;
-            font-weight: 700; 
-            color: white; 
-            text-decoration: none;
-            display: inline-block; 
-            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif; font-size: 1.15rem;
+            font-weight: 700; color: var(--cream);
         }
+        .footer-logo span { color: var(--sage-muted); }
 
-        .footer-logo span { 
-            color: var(--sage); 
-        }
-
-        .footer-links {
-            display: flex; 
-            justify-content: center; 
-            gap: 2.5rem; 
-            margin: 2rem 0;
-            flex-wrap: wrap;
-            list-style: none;
-        }
-
+        .footer-links { display: flex; gap: 1.5rem; list-style: none; }
         .footer-links a {
-            color: rgba(250,246,241,0.6); 
-            text-decoration: none; 
-            font-size: 0.9rem; 
-            transition: color 0.3s;
-            font-weight: 500;
+            color: rgba(250,246,241,0.5); text-decoration: none;
+            font-size: 0.82rem; transition: color 0.3s;
         }
+        .footer-links a:hover { color: var(--sage-muted); }
 
-        .footer-links a:hover { 
-            color: var(--sage-muted); 
-        }
-
-        footer p {
-            font-size: 0.85rem;
-            opacity: 0.7;
-            margin-top: 1.5rem;
-        }
-
-        /* Mobile Responsive */
+        /* Responsive */
         @media (max-width: 768px) {
-            nav {
-                padding: 0 1.5rem;
-                height: 70px;
-            }
-
-            .nav-logo {
-                font-size: 1.2rem;
-                flex-shrink: 0;
-            }
-
-            .services-overview { 
-                grid-template-columns: 1fr; 
-                gap: 3rem; 
-            }
-            
-            .nav-links { 
+            .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 72px;
                 left: 0;
                 right: 0;
                 background: var(--cream);
                 flex-direction: column;
-                padding: 2.5rem 2rem;
-                gap: 2rem;
+                padding: 2rem;
+                gap: 1.5rem;
                 transform: translateY(-100%);
                 opacity: 0;
                 visibility: hidden;
-                transition: all 0.4s ease;
+                transition: all 0.3s ease;
                 border-bottom: 1px solid var(--border-light);
-                box-shadow: 0 8px 25px rgba(62, 39, 35, 0.15);
+                box-shadow: 0 4px 20px rgba(62, 39, 35, 0.1);
             }
-            
+
             .nav-links.show {
                 transform: translateY(0);
                 opacity: 1;
                 visibility: visible;
             }
-            
-            .mobile-toggle { 
-                display: flex;
-                flex-shrink: 0;
+
+            .mobile-toggle { display: flex; }
+
+            .services-overview {
+                grid-template-columns: 1fr;
+                gap: 3rem;
             }
-            
-            .hero-content { 
-                text-align: center; 
-            }
-            
-            .hero-buttons { 
-                justify-content: center; 
+
+            .hero-buttons {
                 flex-direction: column;
-                gap: 1rem;
                 width: 100%;
             }
-            
+
             .hero-buttons a {
                 width: 100%;
-                text-align: center;
                 max-width: 280px;
-            }
-            
-            .features-grid { 
-                grid-template-columns: 1fr; 
-                gap: 2.5rem; 
-            }
-            
-            .footer-links { 
-                gap: 1.5rem; 
-                flex-direction: column;
+                text-align: center;
             }
 
-            .service-card {
-                padding: 2rem 1.5rem;
-            }
-
-            .hero {
-                padding: clamp(1.5rem, 6vw, 3rem);
-            }
-
-            .hero::before {
-                width: 200px;
-                height: 200px;
-                top: 10%;
-                right: 5%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            nav {
-                padding: 0 1rem;
-                height: 65px;
-            }
-
-            .nav-logo {
-                font-size: 1.1rem;
-                max-width: 60%;
-                overflow: hidden;
-                white-space: nowrap;
-            }
-
-            .nav-links {
-                top: 65px;
-            }
-
-            .mobile-toggle {
-                padding: 6px;
-            }
-
-            .mobile-toggle span {
-                width: 20px;
-            }
-
-            .hero-buttons a {
-                padding: 14px 24px;
-                font-size: 0.9rem;
-            }
-
-            .service-card {
-                padding: 1.5rem;
-            }
-
-            .services-overview,
-            .why-choose,
-            .cta-section {
-                padding-left: 1rem;
-                padding-right: 1rem;
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <nav id="navbar">
+    <nav>
         <a href="index.html" class="nav-logo">Make My Day<span>.</span></a>
         <ul class="nav-links" id="nav-links">
             <li><a href="index.html" class="active">Home</a></li>
@@ -634,9 +444,7 @@
             <li><a href="contact.html" class="nav-cta">Book an Event</a></li>
         </ul>
         <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </button>
     </nav>
 
@@ -715,46 +523,37 @@
     </section>
 
     <footer>
-        <div>
-            <a href="index.html" class="footer-logo">Make My Day<span>.</span></a>
-            <nav class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="events.html">Events</a>
-                <a href="contact.html">Contact</a>
-            </nav>
+        <div class="footer-inner">
+            <div class="footer-logo">Make My Day<span>.</span></div>
             <p>&copy; 2026 Make My Day Café. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
     </footer>
 
     <script>
-        // Smooth navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
-        });
-
-        // Mobile menu toggle
         function toggleMobileMenu() {
             const navLinks = document.getElementById('nav-links');
             navLinks.classList.toggle('show');
         }
 
-        // Close mobile menu on link click or outside click
+        // Close mobile menu when clicking a link
         document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.getElementById('nav-links');
-            const nav = document.querySelector('nav');
-
-            // Close menu when clicking a link
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
-                    navLinks.classList.remove('show');
+                    document.getElementById('nav-links').classList.remove('show');
                 });
             });
 
             // Close menu when clicking outside
             document.addEventListener('click', function(e) {
+                const nav = document.querySelector('nav');
+                const navLinks = document.getElementById('nav-links');
                 if (!nav.contains(e.target)) {
                     navLinks.classList.remove('show');
                 }

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse past events and client testimonials from Make My Day Café. Corporate gatherings, private parties, weddings, and pop-up coffee experiences.">
     <title>Events & Gallery - Make My Day Café</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -221,6 +222,7 @@
             .events-grid, .testimonial-cards { grid-template-columns: 1fr; }
             .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
             .gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(4) { grid-column: span 1; }
             .gallery-item { height: 200px; }
             
             .nav-links { 
@@ -391,10 +393,21 @@
             navLinks.classList.toggle('show');
         }
 
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('nav-links').classList.remove('show');
+        // Close mobile menu when clicking a link or outside
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    document.getElementById('nav-links').classList.remove('show');
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                const nav = document.querySelector('nav');
+                const navLinks = document.getElementById('nav-links');
+                if (!nav.contains(e.target)) {
+                    navLinks.classList.remove('show');
+                }
             });
         });
     </script>
