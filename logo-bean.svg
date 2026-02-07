@@ -1,0 +1,8 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Coffee bean -->
+  <ellipse cx="16" cy="16" rx="8" ry="12" fill="#3E2723"/>
+  <!-- Bean split -->
+  <path d="M16 8 Q12 16 16 24 Q20 16 16 8" fill="#8A9A7B" opacity="0.6"/>
+  <!-- Highlight -->
+  <ellipse cx="18" cy="12" rx="2" ry="3" fill="#C9A96E" opacity="0.4"/>
+</svg>

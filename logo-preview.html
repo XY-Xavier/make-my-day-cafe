@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Preview - Make My Day Café</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --espresso: #3E2723; 
+            --sage: #8A9A7B; 
+            --cream: #FAF6F1; 
+            --warm-white: #FFFDF9; 
+            --gold-accent: #C9A96E;
+        }
+        body { 
+            font-family: 'DM Sans', sans-serif; 
+            background: var(--warm-white); 
+            padding: 2rem; 
+        }
+        .preview-container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+        }
+        .logo-option {
+            display: flex; 
+            align-items: center; 
+            gap: 1rem; 
+            padding: 1.5rem; 
+            margin: 1rem 0; 
+            background: var(--cream); 
+            border-radius: 8px;
+            border: 2px solid transparent;
+        }
+        .logo-option:hover {
+            border-color: var(--sage);
+        }
+        .logo-text {
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.35rem;
+            font-weight: 700; 
+            color: var(--espresso); 
+            line-height: 1;
+        }
+        .logo-text span { color: var(--sage); }
+        h1 { 
+            font-family: 'Playfair Display', serif; 
+            color: var(--espresso); 
+            text-align: center; 
+            margin-bottom: 2rem; 
+        }
+        .description {
+            color: var(--espresso);
+            font-size: 0.9rem;
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-container">
+        <h1>Logo Options for Make My Day Café</h1>
+        
+        <div class="logo-option">
+            <img src="logo-cup.svg" alt="Coffee Cup Logo" width="32" height="32">
+            <div class="logo-text">Make My Day Café<span>.</span></div>
+            <div class="description">Classic coffee cup with steam</div>
+        </div>
+
+        <div class="logo-option">
+            <img src="logo-bean.svg" alt="Coffee Bean Logo" width="32" height="32">
+            <div class="logo-text">Make My Day Café<span>.</span></div>
+            <div class="description">Stylized coffee bean</div>
+        </div>
+
+        <div class="logo-option">
+            <img src="logo-brew.svg" alt="Coffee Brewing Logo" width="32" height="32">
+            <div class="logo-text">Make My Day Café<span>.</span></div>
+            <div class="description">Abstract coffee brewing</div>
+        </div>
+
+        <div class="logo-option">
+            <img src="logo-eritrean.svg" alt="Eritrean Jebena Logo" width="32" height="32">
+            <div class="logo-text">Make My Day Café<span>.</span></div>
+            <div class="description">Traditional Eritrean jebena (coffee pot)</div>
+        </div>
+
+        <div class="logo-option" style="border: 3px solid #C9A96E; background: #f8f8f8;">
+            <img src="logo-wreath.svg" alt="Laurel Wreath Logo" width="32" height="32">
+            <div class="logo-text">Make My Day Café<span>.</span></div>
+            <div class="description">Elegant laurel wreath design ⭐ SELECTED</div>
+        </div>
+
+        <p style="text-align: center; margin-top: 2rem; color: var(--espresso);">
+            Preview how each logo looks with the café name. The Eritrean jebena is highlighted as requested!
+        </p>
+    </div>
+</body>
+</html>
