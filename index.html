@@ -317,10 +317,21 @@
             navLinks.classList.toggle('show');
         }
 
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('nav-links').classList.remove('show');
+        // Close mobile menu when clicking a link or outside
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    document.getElementById('nav-links').classList.remove('show');
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                const nav = document.querySelector('nav');
+                const navLinks = document.getElementById('nav-links');
+                if (!nav.contains(e.target)) {
+                    navLinks.classList.remove('show');
+                }
             });
         });
     </script>

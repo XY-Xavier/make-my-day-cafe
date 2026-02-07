@@ -89,9 +89,8 @@
 
         .aaron-photo {
             width: 100%; aspect-ratio: 1;
-            background: var(--espresso); border-radius: 6px;
-            display: flex; align-items: center; justify-content: center;
-            color: var(--cream); font-size: 4rem; opacity: 0.3;
+            background-image: url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face');
+            background-size: cover; background-position: center; border-radius: 6px;
         }
 
         .aaron-story h2 {
@@ -229,7 +228,7 @@
 
         <section class="about-content">
             <div class="aaron-section">
-                <div class="aaron-photo">👨‍💼</div>
+                <div class="aaron-photo"></div>
                 <div class="aaron-story">
                     <h2>The Journey to Make My Day</h2>
                     <p>By day, I'm a Sales Executive at Google, helping businesses grow through technology. But my true passion has always been coffee.</p>
@@ -284,10 +283,21 @@
             navLinks.classList.toggle('show');
         }
 
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('nav-links').classList.remove('show');
+        // Close mobile menu when clicking a link or outside
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    document.getElementById('nav-links').classList.remove('show');
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                const nav = document.querySelector('nav');
+                const navLinks = document.getElementById('nav-links');
+                if (!nav.contains(e.target)) {
+                    navLinks.classList.remove('show');
+                }
             });
         });
     </script>
