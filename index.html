@@ -49,142 +49,11 @@
         .nav-links a.active::after { width: 100%; }
 
         .nav-cta {
-            background: var(--espresso) !important; color: var(--cream) !important;
-            padding: 0.6rem 1.4rem !important; border-radius: 4px;
+            background: var(--sage) !important; color: white !important; 
+            padding: 8px 16px; border-radius: 6px; font-size: 0.8rem !important;
         }
-
-        /* Hero */
-        .hero {
-            min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden;
-            background: linear-gradient(135deg, var(--espresso-dark) 0%, var(--espresso) 40%, var(--espresso-light) 100%);
-        }
-        .hero::before {
-            content: ''; position: absolute; inset: 0;
-            background: radial-gradient(ellipse at 20% 80%, rgba(138, 154, 123, 0.15) 0%, transparent 60%),
-                        radial-gradient(ellipse at 80% 20%, rgba(201, 169, 110, 0.1) 0%, transparent 50%);
-        }
-
-        .hero-content {
-            position: relative; z-index: 2; max-width: 780px;
-            padding: 0 clamp(2rem, 6vw, 8rem);
-        }
-
-        .hero-badge {
-            display: inline-block; padding: 0.4rem 1rem;
-            background: rgba(138, 154, 123, 0.2); border: 1px solid rgba(138, 154, 123, 0.35);
-            border-radius: 100px; color: var(--sage-light); font-size: 0.78rem;
-            font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1.8rem;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 4.5rem);
-            font-weight: 700; color: var(--cream); line-height: 1.1; margin-bottom: 1.5rem;
-        }
-        .hero h1 em { font-style: italic; color: var(--sage-muted); }
-
-        .hero-sub {
-            font-size: clamp(1rem, 1.8vw, 1.2rem); color: rgba(250, 246, 241, 0.7);
-            line-height: 1.7; margin-bottom: 2.5rem; max-width: 560px;
-        }
-
-        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-        .btn-primary {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            padding: 0.9rem 2rem; background: var(--sage); color: white;
-            text-decoration: none; font-size: 0.9rem; font-weight: 600;
-            border-radius: 4px; transition: all 0.3s;
-        }
-        .btn-primary:hover { background: var(--sage-light); transform: translateY(-2px); }
-
-        .btn-outline {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            padding: 0.9rem 2rem; background: transparent; color: var(--cream);
-            text-decoration: none; font-size: 0.9rem; border: 1px solid rgba(250, 246, 241, 0.3);
-            border-radius: 4px; transition: all 0.3s;
-        }
-        .btn-outline:hover { border-color: var(--cream); background: rgba(250,246,241,0.08); }
-
-        /* Services Overview */
-        .services-overview { background: var(--cream); padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 6rem); }
-
-        .section-label {
-            font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
-            color: var(--sage); margin-bottom: 0.8rem; display: block;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 2.8rem);
-            font-weight: 600; color: var(--espresso); margin-bottom: 1rem;
-        }
-
-        .section-desc {
-            font-size: 1.05rem; color: var(--muted-text); max-width: 580px; line-height: 1.7;
-        }
-
-        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3.5rem; }
-
-        .service-card {
-            background: var(--warm-white); border: 1px solid var(--border-light);
-            padding: 2.5rem 2rem; border-radius: 6px; transition: all 0.4s ease;
-        }
-        .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(62,39,35,0.08); }
-
-        .service-icon {
-            width: 48px; height: 48px; background: rgba(138, 154, 123, 0.12);
-            border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-size: 1.3rem; margin-bottom: 1.5rem;
-        }
-
-        .service-card h3 {
-            font-family: 'Playfair Display', serif; font-size: 1.3rem;
-            font-weight: 600; color: var(--espresso); margin-bottom: 0.8rem;
-        }
-
-        .service-card p { font-size: 0.92rem; color: var(--muted-text); line-height: 1.65; }
-
-        /* CTA Banner */
-        .cta-banner {
-            background: linear-gradient(135deg, var(--sage) 0%, #6B7F5E 100%);
-            text-align: center; padding: clamp(3rem, 6vw, 5rem) 2rem;
-        }
-
-        .cta-banner h2 {
-            font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.5rem);
-            color: white; margin-bottom: 0.8rem;
-        }
-
-        .cta-banner p { color: rgba(255,255,255,0.8); margin-bottom: 2rem; font-size: 1.05rem; }
-
-        .btn-white {
-            display: inline-flex; padding: 0.9rem 2.2rem; background: white;
-            color: var(--espresso); text-decoration: none; font-weight: 600;
-            border-radius: 4px; transition: all 0.3s;
-        }
-        .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
-
-        /* Footer */
-        footer {
-            background: var(--espresso-dark); color: rgba(250,246,241,0.5);
-            padding: 3rem clamp(1.5rem, 5vw, 6rem);
-        }
-
-        .footer-inner {
-            max-width: 1200px; margin: 0 auto;
-            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
-        }
-
-        .footer-logo {
-            font-family: 'Playfair Display', serif; font-size: 1.15rem;
-            font-weight: 700; color: var(--cream);
-        }
-        .footer-logo span { color: var(--sage-muted); }
-
-        .footer-links { display: flex; gap: 1.5rem; list-style: none; }
-        .footer-links a {
-            color: rgba(250,246,241,0.5); text-decoration: none; font-size: 0.82rem; transition: color 0.3s;
-        }
-        .footer-links a:hover { color: var(--sage-muted); }
+        .nav-cta:hover { background: var(--sage-light) !important; color: white !important; }
+        .nav-cta::after { display: none !important; }
 
         .mobile-toggle {
             display: none;
@@ -194,6 +63,7 @@
             background: none;
             border: none;
             padding: 6px;
+            z-index: 1001;
         }
 
         .mobile-toggle span {
@@ -204,9 +74,143 @@
             transition: all 0.3s;
         }
 
+        /* Hero */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            padding: clamp(2rem, 8vw, 6rem); background: linear-gradient(135deg, var(--warm-white), var(--cream));
+            position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: -50%; right: -30%; width: 80%; height: 150%;
+            background: radial-gradient(ellipse, rgba(199, 169, 110, 0.12), transparent 70%);
+            transform: rotate(-15deg);
+        }
+        .hero-content { text-align: left; max-width: 640px; z-index: 2; }
+        .hero-badge {
+            background: var(--sage); color: white; padding: 6px 14px; border-radius: 20px;
+            font-size: 0.8rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase;
+            display: inline-block; margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif; font-size: clamp(3rem, 8vw, 4.5rem);
+            line-height: 1.1; color: var(--espresso); margin-bottom: 1.5rem;
+        }
+        .hero em { color: var(--sage); font-style: italic; }
+        .hero-sub {
+            font-size: 1.15rem; line-height: 1.6; color: var(--muted-text);
+            margin-bottom: 2.5rem; max-width: 560px;
+        }
+        .hero-buttons { display: flex; gap: 1rem; align-items: center; }
+
+        .btn-primary {
+            background: var(--espresso); color: white; padding: 14px 32px;
+            border-radius: 8px; text-decoration: none; font-weight: 600;
+            transition: all 0.3s; font-size: 0.95rem;
+        }
+        .btn-primary:hover { background: var(--espresso-dark); transform: translateY(-1px); }
+
+        .btn-outline {
+            border: 1.5px solid var(--sage); color: var(--sage); padding: 13px 32px;
+            border-radius: 8px; text-decoration: none; font-weight: 600;
+            transition: all 0.3s; font-size: 0.95rem;
+        }
+        .btn-outline:hover { background: var(--sage); color: white; }
+
+        /* Services Overview */
+        .services-overview {
+            padding: clamp(4rem, 10vw, 8rem) clamp(1.5rem, 4vw, 4rem);
+            display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start;
+        }
+        .section-label {
+            color: var(--sage); font-size: 0.8rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.1em;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3rem);
+            line-height: 1.2; color: var(--espresso); margin: 1rem 0 1.5rem;
+        }
+        .section-desc {
+            font-size: 1.05rem; line-height: 1.6; color: var(--muted-text); max-width: 460px;
+        }
+
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .service-card {
+            background: white; padding: 2rem; border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(62, 39, 35, 0.06); transition: transform 0.3s;
+        }
+        .service-card:hover { transform: translateY(-4px); }
+        .service-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+        .service-card h3 {
+            font-size: 1.25rem; color: var(--espresso); margin-bottom: 0.75rem; font-weight: 600;
+        }
+        .service-card p { color: var(--muted-text); line-height: 1.5; font-size: 0.95rem; }
+
+        /* Why Choose */
+        .why-choose {
+            background: var(--cream); padding: clamp(4rem, 10vw, 8rem) clamp(1.5rem, 4vw, 4rem);
+        }
+        .why-content { max-width: 800px; margin: 0 auto; text-align: center; }
+        .features-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2.5rem; margin-top: 3rem;
+        }
+        .feature {
+            text-align: center;
+        }
+        .feature-icon {
+            width: 64px; height: 64px; background: var(--sage); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 1rem; font-size: 1.8rem;
+        }
+        .feature h3 {
+            color: var(--espresso); margin-bottom: 0.75rem; font-size: 1.1rem; font-weight: 600;
+        }
+        .feature p { color: var(--muted-text); line-height: 1.5; font-size: 0.9rem; }
+
+        /* CTA */
+        .cta-section {
+            background: var(--espresso); color: white; text-align: center;
+            padding: clamp(4rem, 10vw, 6rem) clamp(1.5rem, 4vw, 4rem);
+        }
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 3.5rem);
+            line-height: 1.2; margin-bottom: 1.5rem;
+        }
+        .cta-section p {
+            font-size: 1.1rem; line-height: 1.6; margin-bottom: 2.5rem;
+            opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;
+        }
+        .btn-light {
+            background: white; color: var(--espresso); padding: 14px 32px;
+            border-radius: 8px; text-decoration: none; font-weight: 600;
+            transition: all 0.3s; font-size: 0.95rem;
+        }
+        .btn-light:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal); color: rgba(250,246,241,0.8); text-align: center;
+            padding: clamp(3rem, 6vw, 4rem) clamp(1.5rem, 4vw, 4rem) 2rem;
+        }
+        .footer-logo {
+            font-family: 'Playfair Display', serif; font-size: 1.5rem;
+            font-weight: 700; color: white; text-decoration: none;
+            display: inline-block; margin-bottom: 1rem;
+        }
+        .footer-logo span { color: var(--sage); }
+        .footer-links {
+            display: flex; justify-content: center; gap: 2rem; margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: rgba(250,246,241,0.5); text-decoration: none; font-size: 0.82rem; transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--sage-muted); }
+
         /* Responsive */
         @media (max-width: 768px) {
             .services-grid { grid-template-columns: 1fr; }
+            .services-overview { grid-template-columns: 1fr; gap: 3rem; }
             
             .nav-links { 
                 position: fixed;
@@ -219,19 +223,24 @@
                 gap: 1.5rem;
                 transform: translateY(-100%);
                 opacity: 0;
+                visibility: hidden;
                 transition: all 0.3s ease;
                 border-bottom: 1px solid var(--border-light);
+                box-shadow: 0 4px 20px rgba(62, 39, 35, 0.1);
             }
             
             .nav-links.show {
                 transform: translateY(0);
                 opacity: 1;
+                visibility: visible;
             }
             
             .mobile-toggle { display: flex; }
             
             .hero-content { text-align: center; }
-            .hero-buttons { justify-content: center; }
+            .hero-buttons { justify-content: center; flex-wrap: wrap; }
+            .features-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-links { gap: 1.5rem; }
         }
     </style>
 </head>
@@ -272,43 +281,75 @@
             <div class="service-card">
                 <div class="service-icon">🏢</div>
                 <h3>Corporate Events</h3>
-                <p>Impress clients and energize your team with premium coffee service at meetings, conferences, and company gatherings. Full barista setup with branded options available.</p>
+                <p>Elevate your meetings, conferences, and team events with barista-quality coffee service that keeps your team energized and focused.</p>
             </div>
             <div class="service-card">
                 <div class="service-icon">🎉</div>
-                <h3>Private Parties</h3>
-                <p>Elevate birthdays, anniversaries, and celebrations with a live coffee bar your guests will love. Specialty drinks, latte art, and custom menus available.</p>
+                <h3>Private Celebrations</h3>
+                <p>Make your special moments even more memorable with artisanal coffee experiences tailored to your celebration style.</p>
             </div>
             <div class="service-card">
-                <div class="service-icon">✦</div>
-                <h3>Pop-Ups & Collaborations</h3>
-                <p>Partner with us for brand activations, product launches, and pop-up experiences. We bring the energy, the aroma, and the crowd.</p>
+                <div class="service-icon">☕</div>
+                <h3>Custom Coffee Bars</h3>
+                <p>From espresso stations to specialty drink menus, we design the perfect coffee experience for your unique event needs.</p>
             </div>
         </div>
     </section>
 
-    <section class="cta-banner">
-        <h2>Ready to Elevate Your Next Event?</h2>
-        <p>Let's create a coffee experience your guests will remember.</p>
-        <a href="contact.html" class="btn-white">Book Your Event →</a>
+    <section class="why-choose">
+        <div class="why-content">
+            <span class="section-label">Why Choose Us</span>
+            <h2 class="section-title">The Make My Day Difference</h2>
+            <p class="section-desc">Experience the perfect blend of Google-level professionalism and artisanal coffee craftsmanship, delivered wherever you need it.</p>
+            
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Google-Level Service</h3>
+                    <p>Professional reliability and attention to detail honed through years in tech leadership.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Complete Mobile Setup</h3>
+                    <p>Full barista equipment and premium ingredients delivered to your location.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">👨‍🍳</div>
+                    <h3>Expert Coffee Craftsmanship</h3>
+                    <p>Artisanal drinks prepared by passionate coffee experts who care about every cup.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Tailored Experiences</h3>
+                    <p>Custom menus and setups designed specifically for your event and guest preferences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to Make Their Day?</h2>
+        <p>Let's create an unforgettable coffee experience for your next event. From intimate gatherings to large corporate functions, we bring the café to you.</p>
+        <a href="contact.html" class="btn-light">Get Your Free Quote</a>
     </section>
 
     <footer>
-        <div class="footer-inner">
-            <div class="footer-logo">Make My Day<span>.</span></div>
-            <p>&copy; 2026 Make My Day Coffee. All rights reserved.</p>
-            <ul class="footer-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+        <div>
+            <a href="index.html" class="footer-logo">Make My Day<span>.</span></a>
+            <nav class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="events.html">Events</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <p>&copy; 2024 Make My Day Cafe. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        window.addEventListener('scroll', () => {
+        // Add scrolled class to navbar on scroll
+        window.addEventListener('scroll', function() {
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
         });
 

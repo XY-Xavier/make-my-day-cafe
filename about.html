@@ -56,8 +56,29 @@
         .nav-links a.active::after { width: 100%; }
 
         .nav-cta {
-            background: var(--espresso) !important; color: var(--cream) !important;
-            padding: 0.6rem 1.4rem !important; border-radius: 4px;
+            background: var(--sage) !important; color: white !important; 
+            padding: 8px 16px; border-radius: 6px; font-size: 0.8rem !important;
+        }
+        .nav-cta:hover { background: var(--sage-light) !important; color: white !important; }
+        .nav-cta::after { display: none !important; }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 6px;
+            z-index: 1001;
+        }
+
+        .mobile-toggle span {
+            width: 22px;
+            height: 2px;
+            background: var(--espresso);
+            border-radius: 1px;
+            transition: all 0.3s;
         }
 
         /* Main Content */
@@ -158,24 +179,6 @@
         }
         .footer-links a:hover { color: var(--sage-muted); }
 
-        .mobile-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 4px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 6px;
-        }
-
-        .mobile-toggle span {
-            width: 22px;
-            height: 2px;
-            background: var(--espresso);
-            border-radius: 1px;
-            transition: all 0.3s;
-        }
-
         /* Responsive */
         @media (max-width: 768px) {
             .aaron-section { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
@@ -192,13 +195,16 @@
                 gap: 1.5rem;
                 transform: translateY(-100%);
                 opacity: 0;
+                visibility: hidden;
                 transition: all 0.3s ease;
                 border-bottom: 1px solid var(--border-light);
+                box-shadow: 0 4px 20px rgba(62, 39, 35, 0.1);
             }
             
             .nav-links.show {
                 transform: translateY(0);
                 opacity: 1;
+                visibility: visible;
             }
             
             .mobile-toggle { display: flex; }
