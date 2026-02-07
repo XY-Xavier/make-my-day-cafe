@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Pricing - Make My Day Cafe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --espresso: #3E2723; --espresso-light: #5D4037; --espresso-dark: #2C1A12;
+            --sage: #8A9A7B; --sage-light: #A8B89C; --sage-muted: #C5D1BC;
+            --cream: #FAF6F1; --warm-white: #FFFDF9; --gold-accent: #C9A96E;
+            --charcoal: #2C2C2C; --muted-text: #6D6356; --border-light: #E8E0D6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'DM Sans', sans-serif; color: var(--charcoal); background: var(--warm-white); }
+
+        /* Navigation */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            padding: 0 clamp(1.5rem, 4vw, 4rem); height: 72px;
+            display: flex; align-items: center; justify-content: space-between;
+            background: rgba(250, 246, 241, 0.92); backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif; font-size: 1.35rem;
+            font-weight: 700; color: var(--espresso); text-decoration: none;
+        }
+        .nav-logo span { color: var(--sage); }
+
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+        .nav-links a {
+            text-decoration: none; color: var(--espresso-light); font-size: 0.88rem;
+            font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+            transition: color 0.3s; position: relative;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0; width: 0;
+            height: 1.5px; background: var(--sage); transition: width 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--espresso); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a.active { color: var(--espresso); }
+        .nav-links a.active::after { width: 100%; }
+
+        .nav-cta {
+            background: var(--espresso) !important; color: var(--cream) !important;
+            padding: 0.6rem 1.4rem !important; border-radius: 4px;
+        }
+
+        /* Main Content */
+        main { margin-top: 72px; }
+        
+        .services-hero {
+            padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 5vw, 6rem);
+            background: var(--cream); text-align: center;
+        }
+        
+        .services-hero h1 {
+            font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 3.8rem);
+            color: var(--espresso); margin-bottom: 1rem;
+        }
+        
+        .services-hero p {
+            font-size: 1.1rem; color: var(--muted-text); max-width: 600px; margin: 0 auto;
+        }
+
+        .services-detail {
+            padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 5vw, 6rem);
+            max-width: 1200px; margin: 0 auto;
+        }
+
+        .detail-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+
+        .detail-card {
+            background: var(--warm-white); border: 1px solid var(--border-light);
+            border-radius: 6px; overflow: hidden; transition: all 0.4s;
+        }
+        .detail-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(62,39,35,0.1); }
+
+        .detail-card-header {
+            padding: 2rem 2rem 1.5rem; border-bottom: 1px solid var(--border-light);
+        }
+
+        .detail-card-header h3 {
+            font-family: 'Playfair Display', serif; font-size: 1.4rem;
+            color: var(--espresso); margin-bottom: 0.3rem;
+        }
+
+        .detail-price {
+            font-size: 0.85rem; color: var(--sage); font-weight: 600;
+        }
+
+        .detail-card-body { padding: 1.5rem 2rem 2rem; }
+
+        .detail-card-body p {
+            font-size: 0.9rem; color: var(--muted-text); line-height: 1.7; margin-bottom: 1.2rem;
+        }
+
+        .detail-features { list-style: none; padding: 0; }
+        .detail-features li {
+            font-size: 0.88rem; color: var(--charcoal); padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-light); display: flex;
+            align-items: center; gap: 0.6rem;
+        }
+        .detail-features li:last-child { border: none; }
+        .detail-features .check { color: var(--sage); font-weight: 700; }
+
+        /* FAQ */
+        .faq-section { background: var(--cream); padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 5vw, 6rem); }
+
+        .section-label {
+            font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--sage); margin-bottom: 0.8rem; display: block;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 600; color: var(--espresso); margin-bottom: 1rem;
+        }
+
+        .faq-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+            margin-top: 3rem; max-width: 1200px; margin-left: auto; margin-right: auto;
+        }
+
+        .faq-item {
+            padding: 1.8rem; background: var(--warm-white); border: 1px solid var(--border-light);
+            border-radius: 6px; transition: border-color 0.3s;
+        }
+        .faq-item:hover { border-color: var(--sage-muted); }
+
+        .faq-item h4 {
+            font-family: 'Playfair Display', serif; font-size: 1.05rem;
+            color: var(--espresso); margin-bottom: 0.6rem;
+        }
+
+        .faq-item p { font-size: 0.88rem; color: var(--muted-text); line-height: 1.65; }
+
+        /* Footer */
+        footer {
+            background: var(--espresso-dark); color: rgba(250,246,241,0.5);
+            padding: 3rem clamp(1.5rem, 5vw, 6rem);
+        }
+
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif; font-size: 1.15rem;
+            font-weight: 700; color: var(--cream);
+        }
+        .footer-logo span { color: var(--sage-muted); }
+
+        .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+        .footer-links a {
+            color: rgba(250,246,241,0.5); text-decoration: none; font-size: 0.82rem; transition: color 0.3s;
+        }
+        .footer-links a:hover { color: var(--sage-muted); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .detail-cards, .faq-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo">Make My Day<span>.</span></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html" class="nav-cta">Book an Event</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="services-hero">
+            <h1>Our Services & Packages</h1>
+            <p>Professional coffee catering designed for every event type, from intimate gatherings to large corporate functions</p>
+        </section>
+
+        <section class="services-detail">
+            <div class="detail-cards">
+                <div class="detail-card">
+                    <div class="detail-card-header">
+                        <h3>Corporate Events</h3>
+                        <div class="detail-price">Starting at $750</div>
+                    </div>
+                    <div class="detail-card-body">
+                        <p>Full-service coffee catering for meetings, conferences, team-building events, and office celebrations. Professional setup with Google-level service standards.</p>
+                        <ul class="detail-features">
+                            <li><span class="check">✓</span> Professional barista team</li>
+                            <li><span class="check">✓</span> Espresso, drip, and cold brew options</li>
+                            <li><span class="check">✓</span> Custom branded cups available</li>
+                            <li><span class="check">✓</span> Up to 4 hours of service</li>
+                            <li><span class="check">✓</span> Complete setup and cleanup</li>
+                            <li><span class="check">✓</span> Alternative milk options</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">
+                        <h3>Private Parties</h3>
+                        <div class="detail-price">Starting at $500</div>
+                    </div>
+                    <div class="detail-card-body">
+                        <p>Make birthdays, anniversaries, and personal celebrations unforgettable with a live coffee bar and personalized service.</p>
+                        <ul class="detail-features">
+                            <li><span class="check">✓</span> Dedicated barista</li>
+                            <li><span class="check">✓</span> Specialty drink menu</li>
+                            <li><span class="check">✓</span> Live latte art performances</li>
+                            <li><span class="check">✓</span> Up to 3 hours of service</li>
+                            <li><span class="check">✓</span> Indoor or outdoor setup</li>
+                            <li><span class="check">✓</span> Custom menu design</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <div class="detail-card-header">
+                        <h3>Pop-Ups & Collaborations</h3>
+                        <div class="detail-price">Custom Pricing</div>
+                    </div>
+                    <div class="detail-card-body">
+                        <p>Partner with us for brand activations, product launches, markets, and collaborative pop-up events that create buzz.</p>
+                        <ul class="detail-features">
+                            <li><span class="check">✓</span> Branded experience design</li>
+                            <li><span class="check">✓</span> Social media integration</li>
+                            <li><span class="check">✓</span> Flexible duration options</li>
+                            <li><span class="check">✓</span> Co-branded materials</li>
+                            <li><span class="check">✓</span> Full creative collaboration</li>
+                            <li><span class="check">✓</span> Event marketing support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div>
+                <span class="section-label">Common Questions</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>How far in advance should I book?</h4>
+                    <p>We recommend booking at least 2–3 weeks in advance for most events. For large corporate events or weddings, 4–6 weeks is ideal to ensure availability and proper planning.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What's included in the setup?</h4>
+                    <p>We bring everything — espresso machine, grinders, milk, syrups, cups, and a professional barista. We just need access to a power outlet and a flat surface.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can you accommodate dietary needs?</h4>
+                    <p>Absolutely. We offer oat, almond, and soy milk alternatives, as well as decaf and caffeine-free options. Just let us know when booking.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Do you serve food as well?</h4>
+                    <p>We focus on coffee and beverages, but we can coordinate with local bakeries and caterers for pastries and light bites to complement your event.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How many guests can you serve?</h4>
+                    <p>We can serve events from 20 to 500+ guests. For larger events, we bring additional baristas and equipment to maintain service quality.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>What areas do you serve?</h4>
+                    <p>We currently serve the San Francisco Bay Area, including San Francisco, Oakland, San Jose, and surrounding cities. Contact us for locations outside this area.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-logo">Make My Day<span>.</span></div>
+            <p>&copy; 2026 Make My Day Coffee. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>
